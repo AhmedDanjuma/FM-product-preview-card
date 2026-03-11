@@ -1,0 +1,152 @@
+// Color Variables
+$cream: hsl(30, 38%, 92%);
+$green-500: hsl(158, 36%, 37%);
+$green-700: hsl(158, 42%, 18%);
+$black: hsl(212, 21%, 14%);
+$grey: hsl(228, 12%, 48%);
+$white: hsl(0, 0%, 100%);
+
+// Global Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  background-color: $cream;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100dvh;
+  line-height: 1.5;
+}
+
+.card {
+  background-color: $white;
+  width: 340px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: auto 0;
+  animation-name: card-shadow-appear;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  animation-timing-function: ease-in-out;
+
+  @media (min-width: 768px) { 
+    width: 600px;
+    flex-direction: row;
+  }
+
+  .card__image {
+    width: 100%;
+    object-fit: cover;
+
+    @media (min-width: 768px) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .card__content {
+    padding: 30px;
+
+    @media (min-width: 768px) {
+      padding: 40px;
+      width: 100%;
+    }
+
+    .card__category {
+      color: $green-700;
+      letter-spacing: 5px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .card__title {
+      font-family: "Fraunces", sans-serif;
+      font-weight: 700;
+      color: $black;
+      font-size: 2rem;
+      padding: 20px 0;
+      letter-spacing: 0px;
+      line-height: 100%;
+    }
+
+    .card__description {
+      color: $grey;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .card__price {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+
+      .card__price-current {
+        color: $green-500;
+        font-size: 30px;
+        font-family: "Fraunces", serif;
+      }
+
+      .card__price-old {
+        color: $grey;
+        font-size: 14px;
+        text-decoration: line-through;
+        margin-left: 20px;
+        font-weight: 500;
+      }
+    }
+
+    .card__button {
+      background-color: $green-500;
+      color: $white;
+      width: 100%;
+      padding: 15px 30px;
+      margin-top: 20px;
+      border-radius: 8px;
+      border: none;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $green-700;
+      }
+    }
+  }
+}
+
+// Animation for card shadow appearance
+@keyframes card-shadow-appear { // Renamed from myAnimation to card-shadow-appear for better clarity
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: auto;
+
+  a {
+    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+  }
+}
